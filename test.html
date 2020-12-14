@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+.aside {
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+input[type=text], textarea {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=button] {
+  font-family: "Lucida Sans", sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=button]:hover {
+  background-color: #45a049;
+}
+.mobile-bg{
+  background-image:url('assets/images/mobile-frame.png');
+  background-size: 640px 600px;
+  background-repeat: no-repeat;
+  min-height:600px;
+}
+.custom-m-l{
+  padding-left:35px;
+}
+.custom-m-t{
+  padding-top:50px;
+}
+.custom-danger-btn{
+  font-family: "Lucida Sans", sans-serif;
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;  
+}
+.custom-default-btn{
+  font-family: "Lucida Sans", sans-serif;
+  background-color: grey;
+  color: white;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;   
+}
+.text-justify{
+  text-align:justify;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 10px;
+  background-color: red;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: red;
+  color: white;
+}
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+}
+@media only screen and (max-width: 420px) {
+  .mobile-bg{
+    background-size: 350px 320px;
+    background-repeat: no-repeat;
+    min-height:320px;
+}
+.custom-m-t{
+  padding-top:10px;
+}
+.modal-content {
+  width: 80%;
+  }
+
+  }
+
+
+
+</style>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="assets/css/jquery.readall.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+<div class="row">
+
+    <div class="col-6 col-s-9 mobile-bg custom-m-l">
+      <h4 class="custom-m-t">Mail Send</h4>
+    <div>
+      <input type="text" placeholder="Subject" id="subject" onfocus="addClass('subject')" />
+    </div>
+    <div>
+      <textarea placeholder="Body" id="body" onfocus="addClass('body')" rows="2"></textarea>
+    </div>
+    <div>
+      <input type="button" value="Add Email Template" onclick="addTemplate();">
+    </div>  
+  </div>
+  <div class="col-3 col-s-3 menu">
+    <h4>Saved Email Template</h4>
+    <div id="displayTemplate" class="text-justify">
+        No Records Found.
+    </div>
+  </div>
+
+
+
+  <div class="col-3 col-s-12">
+    <h4>Add Details</h4>
+     <input type="button" value="Company" onclick="addCompanyName();">
+      <input type="button" value="Phone" onclick="addPhone();" >
+       <input type="button" value="URL" onclick="addUrl();">
+
+<!--     <div class="aside">
+      <h2>What?</h2>
+      <p>Chania is a city on the island of Crete.</p>
+      <h2>Where?</h2>
+      <p>Crete is a Greek island in the Mediterranean Sea.</p>
+      <h2>How?</h2>
+      <p>You can reach Chania airport from all over Europe.</p>
+    </div> -->
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <p>Delete Mail</p>
+    </div>
+    <div class="modal-body">
+      <h4>Are you sure want to delete ?</h4>
+      <button class="custom-danger-btn" onclick="removeItem();">Yes</button>
+      <button class="custom-default-btn" id="no_btn">No</button>
+    </div>
+    <!-- <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div> -->
+  </div>
+
+</div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="assets/js/jquery.readall.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.text-justify').readall({
+            // Default values
+            showheight: 96,                         // height to show
+            showrows: null,                         // rows to show (overrides showheight)
+            animationspeed: 200,                    // speed of transition
+            btnTextShowmore: 'Read more',           // text shown on button to show more
+            btnTextShowless: 'Read less',           // text shown on button to show less
+            btnClassShowmore: 'readall-button',     // class(es) on button to show more
+            btnClassShowless: 'readall-button'      // class(es) on button to show less
+        });
+    });
+</script>
+
+<script>
+// Get the modal
+var count;
+var modal = document.getElementById("myModal");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+var no_btn = document.getElementById("no_btn");
+
+// // When the user clicks the button, open the modal 
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+no_btn.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function openConfirm(index){
+  count = index;
+  modal.style.display = "block";
+}
+  var person;
+  var arr = [];
+  function addTemplate(){
+    var subject = document.getElementById("subject").value;
+    var body = document.getElementById("body").value;
+
+    if(subject != "" && body != ""){
+      person = {subject:subject, body:body};
+      arr.push(person);
+      var str = "";
+      if(arr.length > 0){
+        for(var i=0;i<arr.length;i++){
+          str += "Subject : <b>"+arr[i]['subject']+ "</b><br><br><p>" + arr[i]['body'] +"</p><br><br><button class='custom-danger-btn' onclick='openConfirm("+i+")'>Delete</button><hr>"
+        }
+        document.getElementById("displayTemplate").innerHTML = str;
+        document.getElementById("subject").value = "";
+        document.getElementById("body").value = "";
+      }else{
+         document.getElementById("displayTemplate").innerHTML = "No Records Found.";
+      }
+
+    }else{
+      alert("Please enter subject or body.");
+    }
+  }
+  function removeItem(){
+    arr.splice(count, 1);
+      var str = "";
+     if(arr.length > 0){
+      for(var j=0;j<arr.length;j++){
+        console.log(j);
+        str += "Subject : <b>"+arr[j]['subject']+ "</b><br><br><p>" + arr[j]['body'] +"</p><br><br><button class='custom-danger-btn' onclick='openConfirm("+j+")'>Delete</button><hr>"
+      }
+      document.getElementById("displayTemplate").innerHTML = str; 
+     }else{
+        document.getElementById("displayTemplate").innerHTML = "No Records Found.";
+     }
+    modal.style.display = "none";
+  }
+
+  var type="";
+  function addClass(sel){
+      type = sel;
+  }
+  function addCompanyName(){
+  if($('#'+type).val().length > 0){
+    $('#'+type).val($('#'+type).val() + " Pattani Infoway ");
+  }else{
+
+   $('#'+type).val($('#'+type).val() + "Pattani Infoway");
+  }
+// var x = document.getElementById("subject");
+// console.log(x);
+// if (document.hasFocus()) {
+//  console.log("hello");
+// } else {
+//   console.log("hi");
+// }
+// if($("#body").is(":focus")){
+//     console.log("hello");
+// }else{
+//   console.log("hi");
+//   }
+ 
+
+  }
+  function addPhone(){
+    if($('#'+type).val().length > 0){
+       $('#'+type).val($('#'+type).val() + " 8866259909 ");
+     }else{
+      $('#'+type).val($('#'+type).val() + "8866259909");
+     }
+  
+  }
+  function addUrl(){
+     if($('#'+type).val().length > 0){
+       $('#'+type).val($('#'+type).val() + " http://pattaniinfotech.com/ ");
+
+     }else{
+       $('#'+type).val($('#'+type).val() + "http://pattaniinfotech.com/");
+     }
+  
+  }
+
+</script>
+
+</html>
